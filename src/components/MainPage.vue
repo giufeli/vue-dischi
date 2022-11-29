@@ -20,6 +20,7 @@ import axios from 'axios';
 import AlbumItem from '@/components/AlbumItem.vue';
 
 export default {
+
   name: 'MainPage',
   components: {
     AlbumItem,
@@ -36,6 +37,16 @@ export default {
         console.log(axiosResponse);
         this.arrAlbum = axiosResponse.data.response;
       });
+  },
+  methods: {
+    filterGenere() {
+      const level = document.getElementById('genre').value;
+      if (level === 'rock') {
+        this.$emit('change');
+        console.log('ciao');
+        this.arrAlbum = '';
+      }
+    },
   },
 };
 
