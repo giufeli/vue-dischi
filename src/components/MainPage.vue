@@ -2,6 +2,7 @@
   <div class="bigbox">
     <div class="container text-white">
       <div class="row row-cols-5">
+        {{ selectedfilter }}
         <AlbumItem
           v-for="i in arrAlbum"
           :key="i.id"
@@ -25,6 +26,11 @@ export default {
   components: {
     AlbumItem,
   },
+
+  props: {
+    selectedfilter: String,
+  },
+
   data() {
     return {
       arrAlbum: null,
@@ -40,12 +46,13 @@ export default {
   },
   methods: {
     filterGenere() {
-      const level = document.getElementById('genre').value;
-      if (level === 'rock') {
-        this.$emit('change');
-        console.log('ciao');
-        this.arrAlbum = '';
-      }
+      // const { genere } = document.getElementById('genre');
+      this.$emit('change', 'test');
+      // if (level === 'rock') {
+      //  this.$emit('change');
+      //  console.log('ciao');obj
+      //  this.arrAlbum = '';
+      // }
     },
   },
 };

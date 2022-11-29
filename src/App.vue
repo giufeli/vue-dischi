@@ -1,7 +1,7 @@
 <template>
   <div>
-    <HeaderPage @change="filterGenere" />
-    <MainPage />
+    <HeaderPage @selectgen="onSelect" />
+    <MainPage :selectedfilter="filtered" />
   </div>
 </template>
 
@@ -13,6 +13,19 @@ export default {
   components: {
     HeaderPage,
     MainPage,
+  },
+
+  data() {
+    return {
+      filtered: 'all',
+    };
+  },
+
+  methods: {
+    onSelect(value) {
+      this.filtered = value;
+      console.log(value);
+    },
   },
 
 };

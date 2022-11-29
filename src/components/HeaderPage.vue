@@ -10,7 +10,7 @@
       <select
         id="genre"
         name="genre"
-        @change="$emit('change')"
+        @change="$emit('selectgen', 'test')"
       >
         <option value="all">
           All
